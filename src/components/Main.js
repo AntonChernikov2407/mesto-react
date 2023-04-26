@@ -45,10 +45,10 @@ function Main(props) {
           <div className="profile__info">
             <h1 className="profile__name">{userName}</h1>
             <p className="profile__about-yourself">{userDescription}</p>
-            <button className="profile__edit-button" type="button" aria-label="кнопка" onClick={props.onEditProfile}></button>
+            <button className="profile__edit-button" type="button" aria-label="кнопка" onClick={props.onEditProfile} />
           </div>
         </div>
-        <button className="profile__add-button" type="button" aria-label="кнопка" onClick={props.onAddPlace}></button>
+        <button className="profile__add-button" type="button" aria-label="кнопка" onClick={props.onAddPlace} />
       </section>
 
       <section className="elements" aria-label="карточки">

@@ -8,7 +8,7 @@ function ImagePopup({card, isOpen, onClose}) {
         <div className="popup__zoom-image">
           <img className="popup__image" src={card.link} alt={card.name} />
           <p className="popup__caption">{card.name}</p>
-          <button className="popup__close-button" type="button" aria-label="кнопка" onClick={onClose}></button>
+          <button className="popup__close-button" type="button" aria-label="кнопка" onClick={onClose} />
         </div>
       </div>
     );

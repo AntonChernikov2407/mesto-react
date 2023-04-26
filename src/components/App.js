@@ -56,9 +56,26 @@ function App() {
         onClose={closeAllPopups}
         children={
           <fieldset className="form__input-container"> 
-            <input className="form__input" id="name-input" type="text" name="name" placeholder="Введите ваше имя" minLength="2" maxLength="40" required />
+            <input
+              className="form__input"
+              id="name-input" type="text"
+              name="name"
+              placeholder="Введите ваше имя"
+              minLength="2"
+              maxLength="40"
+              required
+            />
             <span className="form__input-error name-input-error"></span>
-            <input className="form__input" id="about-input" type="text" name="about" placeholder="Расскажите о себе" minLength="2" maxLength="200" required />
+            <input
+              className="form__input"
+              id="about-input"
+              type="text"
+              name="about"
+              placeholder="Расскажите о себе"
+              minLength="2"
+              maxLength="200"
+              required
+            />
             <span className="form__input-error about-input-error"></span>
           </fieldset>
         }
@@ -71,9 +88,25 @@ function App() {
         onClose={closeAllPopups}
         children={
           <fieldset className="form__input-container"> 
-            <input className="form__input" id="place-input" type="text" name="place" placeholder="Название" minLength="2" maxLength="30" required />
+            <input
+              className="form__input"
+              id="place-input"
+              type="text"
+              name="place"
+              placeholder="Название"
+              minLength="2"
+              maxLength="30"
+              required
+            />
             <span className="form__input-error place-input-error"></span>
-            <input className="form__input" id="link-input" type="url" name="link" placeholder="Ссылка на картинку" required />
+            <input
+              className="form__input"
+              id="link-input"
+              type="url"
+              name="link"
+              placeholder="Ссылка на картинку"
+              required
+            />
             <span className="form__input-error link-input-error"></span>
           </fieldset>
         }
@@ -86,7 +119,14 @@ function App() {
         onClose={closeAllPopups}
         children={
           <fieldset className="form__input-container"> 
-            <input className="form__input" id="avatar-input" type="url" name="avatar" placeholder="Ссылка на картинку" required />
+            <input
+              className="form__input"
+              id="avatar-input"
+              type="url"
+              name="avatar"
+              placeholder="Ссылка на картинку"
+              required
+            />
             <span className="form__input-error avatar-input-error"></span>
           </fieldset>
         }
@@ -96,7 +136,12 @@ function App() {
         isOpen={isImagePopupOpen}
         onClose={closeAllPopups}
       />
-      <PopupWithForm name="delete-card" title="Вы уверены?" btnText="Да" children="" />
+      <PopupWithForm
+        name="delete-card"
+        title="Вы уверены?"
+        btnText="Да"
+        children=""
+      />
       <Footer />
     </div>
   );
