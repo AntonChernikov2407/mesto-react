@@ -60,23 +60,15 @@ class Api {
     .then(res => this._getResponseData(res));
   }
 
-  putLike(cardId) { // Запрос на добавление лайка
+  changeLikeCardStatus(cardId, notLiked) { // Запрос на изменение состояния кнопки лайка
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
-      method: 'PUT',
+      method: `${notLiked ? 'PUT' : 'DELETE'}`,
       headers: this._headers
     })
     .then(res => this._getResponseData(res));
   }
 
-  deleteLike(cardId) {// Запрос на удаление лайка
-    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
-      method: 'DELETE',
-      headers: this._headers
-    })
-    .then(res => this._getResponseData(res));
-  }
-
-  patchUserAvatar({avatar}) { // Запрос на обновление аватара
+  patchUserAvatar(avatar) { // Запрос на обновление аватара
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: 'PATCH',
       headers: this._headers,

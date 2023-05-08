@@ -1,6 +1,6 @@
+import { memo } from "react";
 
-
-function ImagePopup({card, isOpen, onClose}) {
+const ImagePopup = memo(({card, isOpen, onClose}) => {
   if (card) {
     return (
       <div className={`popup popup_type_zoom-image popup_theme_dark ${isOpen ? "popup_opened" : ""}`}>
@@ -13,6 +13,6 @@ function ImagePopup({card, isOpen, onClose}) {
       </div>
     );
   }
-}
+})
 
 export default ImagePopup;
