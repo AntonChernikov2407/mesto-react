@@ -22,6 +22,8 @@ const AddPlacePopup = memo((props) => {
     setName('');
     setLink('');
     setIsDisabled(true);
+    setNameIsValid(false);
+    setLinkIsValid(false);
   }, [props.isOpen])
 
   function handleInputChange({name, value}) {
