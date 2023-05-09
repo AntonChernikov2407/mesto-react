@@ -1,7 +1,7 @@
 import PopupWithForm from './PopupWithForm.js';
 import { CurrentUserContext } from '../contexts/CurrentUserContext.js';
 import { useState, useEffect, memo, useContext } from 'react';
-import FormValidator from './FormValidator.js';
+import InputWithValidation from './InputWithValidation.js';
 
 const EditProfilePopup = memo((props) => {
 
@@ -15,7 +15,7 @@ const EditProfilePopup = memo((props) => {
   useEffect(() => {
     setName(currentUser.name);
     setDescription(currentUser.about);
-  }, [currentUser]);
+  }, [currentUser, props.isOpen]);
 
   useEffect(() => {
     if (nameIsValid && aboutIsValid) {
@@ -53,7 +53,7 @@ const EditProfilePopup = memo((props) => {
       isLoading={props.isLoading}
       children={
         <fieldset className="form__input-container"> 
-          <FormValidator
+          <InputWithValidation
             type="text"
             name="name"
             placeholder="Введите ваше имя"
@@ -62,8 +62,9 @@ const EditProfilePopup = memo((props) => {
             value={name || ''}
             onChange={handleInputChange}
             setInputValidity={setInputValidity}
+            isOpen={props.isOpen}
           />
-          <FormValidator
+          <InputWithValidation
             type="text"
             name="about"
             placeholder="Расскажите о себе"
@@ -72,6 +73,7 @@ const EditProfilePopup = memo((props) => {
             value={description || ''}
             onChange={handleInputChange}
             setInputValidity={setInputValidity}
+            isOpen={props.isOpen}
           />
         </fieldset>
       }

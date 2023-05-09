@@ -1,6 +1,6 @@
 import PopupWithForm from './PopupWithForm.js';
 import { useState, useEffect, memo } from 'react';
-import FormValidator from './FormValidator.js';
+import InputWithValidation from './InputWithValidation.js';
 
 const AddPlacePopup = memo((props) => {
 
@@ -18,6 +18,12 @@ const AddPlacePopup = memo((props) => {
     }
   }, [nameIsValid, linkIsValid])
 
+  useEffect(() => {
+    setName('');
+    setLink('');
+    setIsDisabled(true);
+  }, [props.isOpen])
+
   function handleInputChange({name, value}) {
     name === 'place' ? setName(value) : setLink(value);
   }
@@ -29,9 +35,6 @@ const AddPlacePopup = memo((props) => {
   function handleSubmit(evt) {
     evt.preventDefault();
     props.onAddPlace({name, link});
-    setName('');
-    setLink('');
-    setIsDisabled(true);
   }
 
   return (
@@ -46,7 +49,7 @@ const AddPlacePopup = memo((props) => {
       isLoading={props.isLoading}
       children={
         <fieldset className="form__input-container"> 
-          <FormValidator
+          <InputWithValidation
             type="text"
             name="place"
             placeholder="Название"
@@ -55,14 +58,16 @@ const AddPlacePopup = memo((props) => {
             value={name || ''}
             onChange={handleInputChange}
             setInputValidity={setInputValidity}
+            isOpen={props.isOpen}
           />
-          <FormValidator
+          <InputWithValidation
             type="url"
             name="link"
             placeholder="Ссылка на картинку"
             value={link || ''}
             onChange={handleInputChange}
             setInputValidity={setInputValidity}
+            isOpen={props.isOpen}
           />
         </fieldset>
       }

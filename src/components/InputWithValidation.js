@@ -1,13 +1,17 @@
-import { memo, useState } from "react";
+import { memo, useState, useEffect } from "react";
 
-const FormValidator = memo((props) => {
+const InputWithValidation = memo((props) => {
 
   const [error, setError] = useState(false);
   const [errorText, setErrorText] = useState('');
 
+  useEffect(() => {
+    setError(false);
+  }, [props.isOpen])
+
   function checkValidity(evt) {
     const input = evt.target;
-    props.onChange && props.onChange({name: input.name, value: input.value});
+    props.onChange({name: input.name, value: input.value});
     if (!input.validity.valid) {
       setError(true);
       setErrorText(input.validationMessage);
@@ -38,5 +42,5 @@ const FormValidator = memo((props) => {
 
 })
 
-export default FormValidator;
+export default InputWithValidation;
 

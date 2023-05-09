@@ -14,6 +14,12 @@ const EditAvatarPopup = memo((props) => {
     avatarIsValid ? setIsDisabled(false) : setIsDisabled(true);
   }, [avatarIsValid])
 
+  useEffect(() => {
+    avatarRef.current.value = '';
+    setError(false);
+    setIsDisabled(true);
+  }, [props.isOpen])
+
   function checkValidity(evt) {
     const input = evt.target;
     if (!input.validity.valid) {
@@ -32,8 +38,6 @@ const EditAvatarPopup = memo((props) => {
     props.onUpdateAvatar({
       avatar: avatarRef.current.value
     });
-    evt.target.reset();
-    setAvatarIsValid(false);
   }
 
   return (
